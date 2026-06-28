@@ -131,6 +131,24 @@ app.post('/api/admin/:section/add', (req, res) => {
     res.json({ success: true, item: newItem });
 });
 
+// Generic Edit Item
+app.post('/api/admin/:section/edit', (req, res) => {
+    const section = req.params.section;
+    const { id, ...updateData } = req.body;
+    const validSections = ['experience', 'education', 'certifications', 'projects', 'skills'];
+    if (!validSections.includes(section)) return res.status(400).json({ error: 'Invalid section' });
+
+    let data = readJson(`${section}.json`);
+    const index = data.findIndex(item => item.id === id);
+    if (index !== -1) {
+        data[index] = { ...data[index], ...updateData };
+        writeJson(`${section}.json`, data);
+        res.json({ success: true, item: data[index] });
+    } else {
+        res.status(404).json({ error: 'Item not found' });
+    }
+});
+
 // Generic Delete Item
 app.post('/api/admin/:section/delete', (req, res) => {
     const section = req.params.section;

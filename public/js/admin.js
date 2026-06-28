@@ -1,7 +1,9 @@
 // Admin Panel Logic
 
-const ROOT_PASSWORD = 'root'; // Basic auth for demonstration
+const ROOT_PASSWORD = 'Yatish@2006'; // Basic auth for demonstration
 let currentTab = 'messages';
+let editingId = null;
+window.currentItems = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginBtn = document.getElementById('loginBtn');
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loginScreen.style.display = 'none';
             dashboard.style.display = 'block';
             loadData('messages');
-            
+
             // Load Analytics
             fetch('/api/analytics')
                 .then(res => res.json())
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
-            
+
             const tab = e.target.getAttribute('data-tab');
             currentTab = tab;
 
@@ -67,19 +69,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(e.target);
         const data = Object.fromEntries(formData.entries());
 
-        fetch(`/api/admin/${currentTab}/add`, {
+        const url = editingId ? `/api/admin/${currentTab}/edit` : `/api/admin/${currentTab}/add`;
+        if (editingId) data.id = editingId;
+
+        fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(res => {
-            if (res.success) {
-                e.target.reset();
-                loadData(currentTab);
-                alert('Item added successfully!');
-            }
-        });
+            .then(res => res.json())
+            .then(res => {
+                if (res.success) {
+                    e.target.reset();
+                    editingId = null;
+                    document.querySelector('#crudForm button[type="submit"]').textContent = 'Add Item';
+                    loadData(currentTab);
+                    alert(editingId ? 'Item updated successfully!' : 'Item added successfully!');
+                }
+            });
     });
 });
 
@@ -109,15 +116,19 @@ function loadData(tab) {
             .then(res => res.json())
             .then(data => {
                 const items = data[tab] || [];
+                window.currentItems = items;
                 const tbody = document.querySelector('#crudTable tbody');
-                
+
                 if (tab === 'experience') {
                     tbody.innerHTML = items.map(item => `
                         <tr>
                             <td>${item.title}</td>
                             <td>${item.company}</td>
                             <td>${item.date}</td>
-                            <td><button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button></td>
+                            <td>
+                                <button class="action-btn approve" onclick="editItem('${item.id}')">Edit</button>
+                                <button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button>
+                            </td>
                         </tr>
                     `).join('');
                 } else if (tab === 'education') {
@@ -126,7 +137,10 @@ function loadData(tab) {
                             <td>${item.title}</td>
                             <td>${item.institution}</td>
                             <td>${item.date}</td>
-                            <td><button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button></td>
+                            <td>
+                                <button class="action-btn approve" onclick="editItem('${item.id}')">Edit</button>
+                                <button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button>
+                            </td>
                         </tr>
                     `).join('');
                 } else if (tab === 'certifications') {
@@ -135,7 +149,10 @@ function loadData(tab) {
                             <td>${item.title}</td>
                             <td>${item.issuer}</td>
                             <td>${item.date}</td>
-                            <td><button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button></td>
+                            <td>
+                                <button class="action-btn approve" onclick="editItem('${item.id}')">Edit</button>
+                                <button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button>
+                            </td>
                         </tr>
                     `).join('');
                 } else if (tab === 'projects') {
@@ -144,7 +161,10 @@ function loadData(tab) {
                             <td>${item.title}</td>
                             <td>${item.category}</td>
                             <td><a href="${item.github}" target="_blank" style="color:var(--accent-primary)">Link</a></td>
-                            <td><button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button></td>
+                            <td>
+                                <button class="action-btn approve" onclick="editItem('${item.id}')">Edit</button>
+                                <button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button>
+                            </td>
                         </tr>
                     `).join('');
                 } else if (tab === 'skills') {
@@ -153,7 +173,10 @@ function loadData(tab) {
                             <td>${item.category}</td>
                             <td>${item.skills ? item.skills.length : 0} Skills</td>
                             <td>-</td>
-                            <td><button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button></td>
+                            <td>
+                                <button class="action-btn approve" onclick="editItem('${item.id}')">Edit</button>
+                                <button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button>
+                            </td>
                         </tr>
                     `).join('');
                 }
@@ -207,6 +230,31 @@ function setupCrudForm(tab) {
         `;
         headers.innerHTML = `<th>Category</th><th>Item Count</th><th>-</th><th>Actions</th>`;
     }
+    
+    // Reset form state
+    editingId = null;
+    document.querySelector('#crudForm button[type="submit"]').textContent = 'Add Item';
+}
+
+function editItem(id) {
+    const item = window.currentItems.find(i => i.id === id);
+    if (!item) return;
+
+    editingId = id;
+    const form = document.getElementById('crudForm');
+    
+    // Populate form inputs
+    Object.keys(item).forEach(key => {
+        const input = form.elements[key];
+        if (input) {
+            input.value = item[key];
+        }
+    });
+
+    document.querySelector('#crudForm button[type="submit"]').textContent = 'Update Item';
+    
+    // Scroll to form
+    document.getElementById('crudTitle').scrollIntoView({ behavior: 'smooth' });
 }
 
 function updateMessageStatus(id, status) {
@@ -218,7 +266,7 @@ function updateMessageStatus(id, status) {
 }
 
 function deleteItem(section, id) {
-    if(confirm('Are you sure you want to delete this item?')) {
+    if (confirm('Are you sure you want to delete this item?')) {
         fetch(`/api/admin/${section}/delete`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
