@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Penetration Tester & Ethical Hacker",
+    "date": "Oct 2025 \u2013 Mar 2026",
+    "company": "Securonix",
+    "description": "Conducted comprehensive penetration testing and ethical hacking operations. Identified and mitigated security vulnerabilities to enhance overall security posture."
+  },
+  {
+    "id": "2",
+    "title": "Cybersecurity Intern",
+    "date": "Jul 2025 \u2013 Aug 2025",
+    "company": "Prodigy InfoTech",
+    "description": "Assisted in security assessments and vulnerability scanning. Contributed to the development of security protocols and threat mitigation strategies."
+  },
+  {
+    "id": "3",
+    "title": "Ethical Hacker Intern",
+    "date": "Jan 2025 \u2013 Jun 2025",
+    "company": "Seconize",
+    "description": "Performed ethical hacking tasks and assisted in simulated cyber attacks to evaluate system defenses. Gained hands-on experience with industry-standard security tools and methodologies."
+  }
+]

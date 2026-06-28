@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatish | Admin Panel</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div id="login-screen" class="login-container fade-in">
+        <div class="login-box">
+            <div class="logo">&gt;_admin.sh</div>
+            <h2>Authenticate</h2>
+            <input type="password" id="adminPassword" placeholder="Enter root password...">
+            <button id="loginBtn" class="submit-btn" style="margin-top: 1rem;">Login</button>
+            <p id="loginError" style="color: red; display: none; margin-top: 1rem;">Access Denied</p>
+        </div>
+    </div>
+
+    <div id="admin-dashboard" class="admin-dashboard" style="display: none;">
+        <nav class="admin-nav" style="flex-wrap: wrap; gap: 1rem;">
+            <div class="logo">&gt;_admin.sh <span class="logo-sign">Dashboard</span></div>
+            <div style="color: var(--accent-secondary); font-family: 'Courier New', monospace; font-size: 1.1rem;">
+                <span id="adminTotalViews">Loading Views...</span> 👁️
+            </div>
+            <div class="admin-tabs" style="width: 100%; display: flex; justify-content: flex-start; overflow-x: auto;">
+                <button class="tab-btn active" data-tab="messages">Messages</button>
+                <button class="tab-btn" data-tab="experience">Experience</button>
+                <button class="tab-btn" data-tab="education">Education</button>
+                <button class="tab-btn" data-tab="certifications">Certifications</button>
+                <button class="tab-btn" data-tab="projects">Projects</button>
+                <button class="tab-btn" data-tab="skills">Skills</button>
+                <button id="logoutBtn" class="tab-btn" style="color: red;">Logout</button>
+            </div>
+        </nav>
+
+        <div class="admin-content">
+            <!-- Messages Tab -->
+            <div id="messages-tab" class="tab-content active">
+                <h2>Contact Messages</h2>
+                <div class="table-container">
+                    <table id="messagesTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Generic CRUD Tab -->
+            <div id="crud-tab" class="tab-content">
+                <h2 id="crudTitle">Manage Data</h2>
+                <div class="form-container">
+                    <h3>Add New Item</h3>
+                    <form id="crudForm">
+                        <div id="dynamicInputs"></div>
+                        <button type="submit" class="submit-btn" style="width: auto;">Add Item</button>
+                    </form>
+                </div>
+                <div class="table-container">
+                    <table id="crudTable">
+                        <thead>
+                            <tr id="crudHeaders"></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

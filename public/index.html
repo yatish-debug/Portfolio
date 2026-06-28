@@ -1,0 +1,343 @@
+<!--
+    File: index.html
+    Purpose: Developer portfolio main page
+    Signed by: Yatish
+    Date: 2025-10-16
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatish Hemant Bharambe | Portfolio</title>
+    <meta name="description" content="Cyber Security Analyst Portfolio">
+    <meta name="author" content="Yatish Hemant Bharambe">
+    
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Terminal Boot Screen - signed: Yatish -->
+    <div id="bootScreen" class="boot-screen">
+        <div class="boot-content">
+            <div class="boot-header">
+                <pre class="ascii-art">
+ ____  _____ _   _ _____ _     ___  ____  _____ ____  
+|  _ \| ____| | | | ____| |   / _ \|  _ \| ____|  _ \ 
+| | | |  _| | | | |  _| | |  | | | | |_) |  _| | |_) |
+| |_| | |___| |_| | |___| |__| |_| |  __/| |___|  _ < 
+|____/|_____|\___/|_____|_____\___/|_|   |_____|_| \_\
+                </pre>
+            </div>
+            <div class="boot-terminal">
+                <p><span class="boot-prompt">[SYSTEM]</span> <span class="boot-text">Initializing system...</span></p>
+                <p><span class="boot-prompt">[BOOT]</span> <span class="boot-text">Loading core modules</span> <span class="boot-dots"></span></p>
+                <p><span class="boot-prompt">[INIT]</span> <span class="boot-text">Mounting file systems</span> <span class="boot-status boot-ok">[OK]</span></p>
+                <p><span class="boot-prompt">[LOAD]</span> <span class="boot-text">Starting network services</span> <span class="boot-status boot-ok">[OK]</span></p>
+                <p><span class="boot-prompt">[EXEC]</span> <span class="boot-text">Loading portfolio.sh</span> <span class="boot-dots"></span></p>
+                <p><span class="boot-prompt">[INIT]</span> <span class="boot-text">Initializing user interface</span> <span class="boot-status boot-ok">[OK]</span></p>
+                <p><span class="boot-prompt">[DONE]</span> <span class="boot-text">System ready</span> <span class="boot-status boot-ready">[READY]</span></p>
+            </div>
+            <div class="boot-progress">
+                <div class="boot-progress-bar"></div>
+            </div>
+            <p class="boot-footer">Press any key to continue... <span class="boot-sign">— Yatish</span></p>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo">&gt;_security.sh</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" onclick="closeMenu()">About</a>
+                <a href="#skills" onclick="closeMenu()">Skills</a>
+                <a href="#experience" onclick="closeMenu()">Experience</a>
+                <a href="#education" onclick="closeMenu()">Education</a>
+                <a href="#certifications" onclick="closeMenu()">Certifications</a>
+                <a href="#projects" onclick="closeMenu()">Projects</a>
+                <a href="#contact" onclick="closeMenu()">Contact</a>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" style="background: none; border: none; cursor: pointer; font-size: 1.2rem; margin-left: 2rem; color: var(--text-main); transition: transform 0.3s;">☀️</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1 style="font-size: 3rem; white-space: nowrap;">Yatish Hemant Bharambe</h1>
+            <p class="subtitle">Cyber Security Analyst & Digital Forensics Expert</p>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dot dot-red"></div>
+                    <div class="terminal-dot dot-yellow"></div>
+                    <div class="terminal-dot dot-green"></div>
+                </div>
+                <div class="terminal-text">
+                    <p><span class="prompt">$</span> <span class="command">./get_profile.sh</span></p>
+                    <p class="output">Cyber Security Expert with expertise in:</p>
+                    <p class="output"><span class="prompt">&gt;</span> Penetration Testing</p>
+                    <p class="output"><span class="prompt">&gt;</span> SOC Analysis</p>
+                    <p class="output"><span class="prompt">&gt;</span> Digital Forensics</p>
+                    <br>
+                    <p><span class="prompt">$</span> <span class="command">cat contact.txt</span></p>
+                    <p class="output">GitHub: <a href="https://github.com/yatish-debug" target="_blank" class="link">github.com/yatish-debug</a> <span class="muted">· by Yatish</span></p>
+                    <br>
+                    <p><span class="prompt">$</span> <span class="output">_</span><span style="animation: blink 1s infinite;">|</span></p>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <!-- Quick sign -->
+                <span class="cta-sign">signed: Yatish</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <p class="about-intro">
+                        Hi! I'm <span class="highlight">Yatish Hemant Bharambe</span>, a Cyber Security Analyst 
+                        dedicated to securing digital landscapes. <span class="about-sign">— Yatish</span>
+                    </p>
+                    <p>
+                        Cybersecurity professional with 15 months of hands-on experience in ethical hacking, penetration testing, vulnerability assessment, and security operations. Currently pursuing a B.Tech in Computer Engineering (Cybersecurity) and a UG Diploma in Cybersecurity & Advanced Digital Forensics. Skilled in web and network penetration testing, Active Directory security, SIEM-based threat analysis, digital forensics, and security automation using Python, Bash, and PowerShell. Experienced with industry frameworks including MITRE ATT&CK, NIST Cybersecurity Framework, and OWASP Top 10.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Months Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Security Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Cups of Coffee</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <div class="code-dot dot-red"></div>
+                            <div class="code-dot dot-yellow"></div>
+                            <div class="code-dot dot-green"></div>
+                            <span class="code-title">about.js</span>
+                        </div>
+                        <div class="code-content">
+<pre><code><span class="code-keyword">const</span> <span class="code-variable">security_analyst</span> = {
+                        <span class="code-property">name</span>: <span class="code-string">"Yatish Hemant Bharambe"</span>,
+  <span class="code-property">role</span>: <span class="code-string">"Cyber Security Analyst"</span>,
+  <span class="code-property">location</span>: <span class="code-string">"India"</span>,
+  <span class="code-property">interests</span>: [
+    <span class="code-string">"Ethical Hacking"</span>,
+    <span class="code-string">"Penetration Testing"</span>,
+    <span class="code-string">"Digital Forensics"</span>,
+    <span class="code-string">"Security Automation"</span>
+  ],
+  <span class="code-property">currentlyLearning</span>: [
+    <span class="code-string">"Advanced Malware Analysis"</span>,
+    <span class="code-string">"Cloud Security"</span>
+  ],
+    <span class="code-property">funFact</span>: <span class="code-string">"I break things to learn how to secure them."</span>
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid" id="skills-container">
+            <!-- Dynamic Content -->
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="timeline" id="experience-container">
+            <!-- Dynamic Content -->
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="timeline" id="education-container">
+            <!-- Dynamic Content -->
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications & Awards</h2>
+        <div class="certifications-grid" id="certifications-container">
+            <!-- Dynamic Content -->
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <h3 style="font-size: 1.2rem;">🛡️ Cyber Immune System</h3>
+                <p>AI-driven autonomous threat detection and response platform for enterprise security. <span class="project-sign">(by Yatish)</span></p>
+                <div class="blog-tags" style="margin-top: 15px; margin-bottom: 15px;">
+                    <span class="blog-tag">FastAPI</span>
+                    <span class="blog-tag">PyTorch</span>
+                    <span class="blog-tag">Docker</span>
+                </div>
+                <a href="#" class="project-link" data-project-id="cyber-immune">View Details &rarr;</a>
+            </div>
+            
+            <div class="project-card fade-in" style="animation-delay: 0.1s;">
+                <h3 style="font-size: 1.2rem;">💳 FraudSim AI</h3>
+                <p>A digital payment simulation platform detecting fraudulent transactions using ML and behavioral analysis.</p>
+                <div class="blog-tags" style="margin-top: 15px; margin-bottom: 15px;">
+                    <span class="blog-tag">Python</span>
+                    <span class="blog-tag">Scikit-learn</span>
+                    <span class="blog-tag">React</span>
+                </div>
+                <a href="#" class="project-link" data-project-id="fraudsim-ai">Explore &rarr;</a>
+            </div>
+            
+            <div class="project-card fade-in" style="animation-delay: 0.2s;">
+                <h3 style="font-size: 1.2rem;">🎭 DeepShield AI</h3>
+                <p>Multi-modal digital forensics platform for detecting manipulated images, videos, and voice recordings.</p>
+                <div class="blog-tags" style="margin-top: 15px; margin-bottom: 15px;">
+                    <span class="blog-tag">PyTorch</span>
+                    <span class="blog-tag">OpenCV</span>
+                    <span class="blog-tag">TensorFlow</span>
+                </div>
+                <a href="#" class="project-link" data-project-id="deepshield-ai">View Details &rarr;</a>
+            </div>
+
+            <div class="project-card fade-in" style="animation-delay: 0.3s;">
+                <h3 style="font-size: 1.2rem;">✈️ Flighto Security</h3>
+                <p>Secure ticket booking platform with enterprise-grade controls, MFA, encryption, and fraud prevention.</p>
+                <div class="blog-tags" style="margin-top: 15px; margin-bottom: 15px;">
+                    <span class="blog-tag">FastAPI</span>
+                    <span class="blog-tag">PostgreSQL</span>
+                    <span class="blog-tag">AES</span>
+                </div>
+                <a href="#" class="project-link" data-project-id="flighto-security">Explore &rarr;</a>
+            </div>
+
+            <div class="project-card fade-in" style="animation-delay: 0.4s;">
+                <h3 style="font-size: 1.2rem;">🤖 AI Internship Engine</h3>
+                <p>Intelligent recommendation engine matching student resumes with opportunities using NLP algorithms.</p>
+                <div class="blog-tags" style="margin-top: 15px; margin-bottom: 15px;">
+                    <span class="blog-tag">TF-IDF</span>
+                    <span class="blog-tag">Cosine Sim</span>
+                    <span class="blog-tag">Scikit-learn</span>
+                </div>
+                <a href="#" class="project-link" data-project-id="ai-internship">View Details &rarr;</a>
+            </div>
+
+            <div class="project-card fade-in" style="animation-delay: 0.5s;">
+                <h3 style="font-size: 1.2rem;">🏫 CollERP</h3>
+                <p>Enterprise resource planning platform for institutions with Zero Trust principles and secure RBAC.</p>
+                <div class="blog-tags" style="margin-top: 15px; margin-bottom: 15px;">
+                    <span class="blog-tag">React</span>
+                    <span class="blog-tag">Redis</span>
+                    <span class="blog-tag">JWT</span>
+                </div>
+                <a href="#" class="project-link" data-project-id="collerp">Explore &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-item fade-in">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:yhbharmbe26@gmail.com">yhbharmbe26@gmail.com</a>
+                    <div class="contact-note">preferred contact: <strong>Yatish</strong></div>
+                </div>
+
+                <div class="contact-item fade-in" style="animation-delay: 0.1s;">
+                    <div class="contact-icon">💼</div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/yatish-debug" target="_blank">github.com/yatish-debug</a>
+                </div>
+
+                <div class="contact-item fade-in" style="animation-delay: 0.2s;">
+                    <div class="contact-icon">🔗</div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/yatish-bharambe-050197330" target="_blank">linkedin.com/in/yatish-bharambe-050197330</a>
+                </div>
+
+
+            </div>
+
+            <div class="contact-form fade-in">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>$ name --input</label>
+                        <input type="text" name="name" placeholder="Yatish" required>
+                        <small class="field-sign">Signed by Yatish</small>
+                    </div>
+                    <div class="form-group">
+                        <label>$ email --input</label>
+                        <input type="email" name="email" placeholder="yhbharmbe26@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>$ message --input</label>
+                        <textarea name="message" placeholder="Your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+    <p>&copy; 2025 <span class="signature">Yatish</span>. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Made with ❤️ using HTML, CSS & JavaScript</p>
+        <p style="margin-top: 0.25rem; font-size: 0.8rem; color: #bbb;">Site signed and maintained by <strong>Yatish Hemant Bharambe</strong></p>
+        
+        <!-- Visitor Counter -->
+        <div style="margin-top: 1.5rem; display: inline-block; padding: 0.5rem 1rem; border: 1px solid var(--accent-primary); border-radius: 5px; background: rgba(0, 255, 140, 0.05);">
+            <p style="font-family: 'Courier New', monospace; font-size: 0.9rem; color: var(--accent-primary); margin: 0;">
+                <span style="opacity: 0.7;">$ cat /var/log/visitors</span><br>
+                Total Views: <strong id="visitorCount">Loading...</strong>
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+<!-- End of file - signed: Yatish -->

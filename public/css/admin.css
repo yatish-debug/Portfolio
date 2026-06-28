@@ -1,0 +1,124 @@
+/* Admin Specific Styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-box {
+    background: rgba(var(--bg-surface-rgb), 0.9);
+    padding: 3rem;
+    border: 1px solid var(--accent-primary);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.2);
+}
+
+.login-box input {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2rem;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.admin-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(var(--bg-surface-rgb), 0.95);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 1rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    color: var(--accent-primary);
+    border-bottom: 2px solid var(--accent-primary);
+}
+
+.admin-content {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+
+.table-container {
+    background: rgba(var(--bg-surface-rgb), 0.5);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-top: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    color: var(--accent-primary);
+    font-weight: bold;
+}
+
+.action-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    border-radius: 3px;
+}
+.action-btn.approve { color: var(--accent-primary); border-color: var(--accent-primary); }
+.action-btn.deny { color: red; border-color: red; }
+.action-btn:hover { background: rgba(255,255,255,0.1); }
+
+.form-container {
+    background: rgba(var(--bg-surface-rgb), 0.5);
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.form-container input, .form-container textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+}

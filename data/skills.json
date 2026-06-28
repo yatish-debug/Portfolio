@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "category": "Ethical Hacking & Penetration Testing",
+    "skills": [
+      { "name": "Network Penetration Testing", "percentage": 95 },
+      { "name": "Web Penetration Testing", "percentage": 92 },
+      { "name": "Vulnerability Assessment", "percentage": 90 },
+      { "name": "Active Directory Security", "percentage": 87 },
+      { "name": "Post-Exploitation & PrivEsc", "percentage": 85 }
+    ]
+  },
+  {
+    "id": "2",
+    "category": "Web Application Security",
+    "skills": [
+      { "name": "OWASP Top 10", "percentage": 95 },
+      { "name": "Burp Suite Professional", "percentage": 93 },
+      { "name": "SQL Injection Testing", "percentage": 90 },
+      { "name": "Cross-Site Scripting (XSS)", "percentage": 88 },
+      { "name": "Auth & Session Security", "percentage": 86 }
+    ]
+  },
+  {
+    "id": "3",
+    "category": "Reverse Engineering",
+    "skills": [
+      { "name": "Static Malware Analysis", "percentage": 82 },
+      { "name": "Dynamic Malware Analysis", "percentage": 80 },
+      { "name": "Ghidra & IDA Free", "percentage": 78 },
+      { "name": "x64dbg / OllyDbg Debugging", "percentage": 75 },
+      { "name": "Assembly (x86/x64) Analysis", "percentage": 72 }
+    ]
+  }
+]

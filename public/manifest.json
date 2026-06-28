@@ -1,0 +1,17 @@
+{
+  "name": "Yatish - Cyber Security Analyst",
+  "short_name": "Yatish Cyber",
+  "description": "Portfolio of Yatish Hemant Bharambe, Cyber Security Analyst & Digital Forensics Expert",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

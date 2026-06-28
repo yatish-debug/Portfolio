@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "title": "UG Diploma in Cybersecurity & Advanced Digital Forensics",
+    "date": "Oct 2024 \u2013 Nov 2029",
+    "institution": "Massachusetts Institute of Technology",
+    "score": "CGPA: 3.968 / 4.0"
+  },
+  {
+    "id": "2",
+    "title": "B.Tech in Computer Engineering",
+    "date": "Aug 2024 \u2013 Dec 2028",
+    "institution": "Godavari College of Engineering",
+    "score": "CGPA: 7.1 / 10.0"
+  },
+  {
+    "id": "3",
+    "title": "Higher Secondary Certificate (HSC) - PCM",
+    "date": "2022 \u2013 2024",
+    "institution": "Dhanaji Nana Chaudhari Vidya Prabodhini",
+    "score": "Percentage: 65.83%"
+  },
+  {
+    "id": "4",
+    "title": "Secondary School Certificate (SSC)",
+    "date": "2021 \u2013 2022",
+    "institution": "Raosaheb Rupchand Vidyalaya",
+    "score": "Percentage: 70.40%"
+  }
+]

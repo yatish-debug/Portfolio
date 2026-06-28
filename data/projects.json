@@ -1,0 +1,92 @@
+[
+  {
+    "id": "cyber-immune",
+    "title": "🛡️ Cyber Immune System",
+    "category": "AI Cybersecurity | Blue Team | SOC",
+    "description": "An enterprise-grade AI cybersecurity platform designed to detect, analyze, and autonomously respond to cyber threats in real time. The platform integrates machine learning, behavioral analytics, threat intelligence, deepfake detection, digital identity verification, and automated incident response to minimize attack impact.",
+    "features": [
+      "Real-time SOC dashboard with intelligent risk scoring",
+      "MITRE ATT&CK mapping for threat actors",
+      "Autonomous incident response and mitigation",
+      "Behavioral anomaly detection using deep learning"
+    ],
+    "tech": ["FastAPI", "React", "PostgreSQL", "Redis", "Python", "PyTorch", "Docker", "Elasticsearch"],
+    "github": "https://github.com/yatish-debug",
+    "demo": "#"
+  },
+  {
+    "id": "fraudsim-ai",
+    "title": "💳 FraudSim AI",
+    "category": "FinTech Security | Machine Learning",
+    "description": "A secure digital payment simulation platform capable of detecting fraudulent financial transactions using machine learning and behavioral analysis. It analyzes transaction velocity, geolocation mismatches, and behavioral patterns to flag suspicious activities.",
+    "features": [
+      "Behavioral analysis for transaction verification",
+      "Machine learning models trained on fraud datasets",
+      "Real-time fraud scoring API",
+      "Mock financial dashboard for monitoring"
+    ],
+    "tech": ["Python", "Scikit-learn", "React", "FastAPI"],
+    "github": "https://github.com/yatish-debug",
+    "demo": "#"
+  },
+  {
+    "id": "deepshield-ai",
+    "title": "🎭 DeepShield AI",
+    "category": "Digital Forensics | AI Security",
+    "description": "A multi-modal digital forensics platform engineered for detecting manipulated images, deepfake videos, and synthetic voice recordings. It provides confidence scores and highlights manipulated regions in media.",
+    "features": [
+      "Deepfake video detection using CNNs",
+      "Synthetic voice analysis and frequency mapping",
+      "Image forensics (metadata and pixel-level tampering)",
+      "Automated forensics reporting"
+    ],
+    "tech": ["PyTorch", "OpenCV", "TensorFlow", "Python"],
+    "github": "https://github.com/yatish-debug",
+    "demo": "#"
+  },
+  {
+    "id": "flighto-security",
+    "title": "✈️ Flighto Security",
+    "category": "Web Security | Cryptography",
+    "description": "A secure ticket booking platform built with enterprise-grade controls. It implements strict Role-Based Access Control (RBAC), Multi-Factor Authentication (MFA), end-to-end encryption for sensitive data, and business logic fraud prevention.",
+    "features": [
+      "End-to-End Encryption (AES) for PII",
+      "Strict Role-Based Access Control (RBAC)",
+      "Multi-Factor Authentication (MFA) integration",
+      "Rate limiting and anti-bot mechanisms"
+    ],
+    "tech": ["FastAPI", "PostgreSQL", "AES", "Redis"],
+    "github": "https://github.com/yatish-debug",
+    "demo": "#"
+  },
+  {
+    "id": "ai-internship",
+    "title": "🤖 AI Internship Engine",
+    "category": "NLP | Machine Learning",
+    "description": "An intelligent recommendation engine that matches student resumes with appropriate internship opportunities. It parses resumes, extracts key skills using Natural Language Processing, and calculates cosine similarity to job descriptions.",
+    "features": [
+      "Automated resume parsing and skill extraction",
+      "TF-IDF vectorization and Cosine Similarity scoring",
+      "Bias mitigation in matching algorithms",
+      "Scalable document processing pipeline"
+    ],
+    "tech": ["TF-IDF", "Cosine Sim", "Scikit-learn", "NLTK"],
+    "github": "https://github.com/yatish-debug",
+    "demo": "#"
+  },
+  {
+    "id": "collerp",
+    "title": "🏫 CollERP",
+    "category": "Enterprise Security | Zero Trust",
+    "description": "An Enterprise Resource Planning (ERP) platform designed for educational institutions, built strictly on Zero Trust principles. It ensures every request is authenticated and authorized, preventing lateral movement within the application.",
+    "features": [
+      "Zero Trust Architecture principles applied",
+      "Secure JSON Web Token (JWT) stateless auth",
+      "Data segregation by institution departments",
+      "Comprehensive audit logging for all actions"
+    ],
+    "tech": ["React", "Redis", "JWT", "Node.js"],
+    "github": "https://github.com/yatish-debug",
+    "demo": "#"
+  }
+]

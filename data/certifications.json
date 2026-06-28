@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "title": "Certified in Cybersecurity (CC)",
+    "issuer": "ISC2",
+    "category": "Cybersecurity",
+    "icon": "🛡️",
+    "date": "January 2025",
+    "description": "Foundational cybersecurity knowledge covering security principles, business continuity, and network security."
+  },
+  {
+    "id": "2",
+    "title": "Certified Network Associate (CCNA)",
+    "issuer": "Cisco",
+    "category": "Networking",
+    "icon": "🌐",
+    "date": "March 2025",
+    "description": "Expertise in network fundamentals, IP connectivity, security fundamentals, and automation."
+  },
+  {
+    "id": "3",
+    "title": "Junior Penetration Tester (eJPT)",
+    "issuer": "eLearnSecurity",
+    "category": "Pentesting",
+    "icon": "🔓",
+    "date": "September 2025",
+    "description": "Practical, hands-on certification in penetration testing and information security essentials."
+  },
+  {
+    "id": "4",
+    "title": "Certified Ethical Hacker (CEH)",
+    "issuer": "EC-Council",
+    "category": "Ethical Hacking",
+    "icon": "☠️",
+    "date": "July 2025",
+    "description": "Mastery of ethical hacking phases, various attack vectors, and preventative countermeasures."
+  },
+  {
+    "id": "5",
+    "title": "OffSec Certified Professional (OSCP)",
+    "issuer": "OffSec",
+    "category": "Offensive Security",
+    "icon": "🔥",
+    "date": "January 2026",
+    "description": "Advanced, hands-on certification proving ability to identify vulnerabilities and execute controlled attacks."
+  },
+  {
+    "id": "6",
+    "title": "Web Application Pentesting (eWPT)",
+    "issuer": "eLearnSecurity",
+    "category": "Web App Pentest",
+    "icon": "💻",
+    "date": "November 2025",
+    "description": "Practical web application security testing, vulnerability assessment, and exploitation."
+  },
+  {
+    "id": "7",
+    "title": "Google Cybersecurity Professional",
+    "issuer": "Google",
+    "category": "Cybersecurity",
+    "icon": "🔍",
+    "date": "May 2025",
+    "description": "Comprehensive training in identifying risks, mitigating threats, and hands-on experience with SIEM tools."
+  }
+]
