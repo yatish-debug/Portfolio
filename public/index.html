@@ -26,12 +26,12 @@
     <div id="bootScreen" class="boot-screen">
         <div class="boot-content">
             <div class="boot-header">
-                <pre class="ascii-art">
- ____  _____ _   _ _____ _     ___  ____  _____ ____  
-|  _ \| ____| | | | ____| |   / _ \|  _ \| ____|  _ \ 
-| | | |  _| | | | |  _| | |  | | | | |_) |  _| | |_) |
-| |_| | |___| |_| | |___| |__| |_| |  __/| |___|  _ < 
-|____/|_____|\___/|_____|_____\___/|_|   |_____|_| \_\
+                <pre class="ascii-art" style="color: var(--accent-primary);">
+ _   _    _    ____ _  _______ ____  
+| | | |  / \  / ___| |/ / ____|  _ \ 
+| |_| | / _ \| |   | ' /|  _| | |_) |
+|  _  |/ ___ \ |___| . \| |___|  _ < 
+|_| |_/_/   \_\____|_|\_\_____|_| \_\
                 </pre>
             </div>
             <div class="boot-terminal">
@@ -53,7 +53,7 @@
     <nav>
         <div class="nav-content">
             <div class="logo">&gt;_security.sh</div>
-            <div class="hamburger" onclick="toggleMenu()">
+            <div class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -97,6 +97,7 @@
             </div>
 
             <div class="cta-buttons">
+                <a href="assets/resume.pdf" target="_blank" class="btn btn-primary" style="border-color: #FFD700; color: #FFD700;" onmouseover="this.style.background='#FFD700'; this.style.color='#000';" onmouseout="this.style.background='transparent'; this.style.color='#FFD700';">View Resume</a>
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 <!-- Quick sign -->
@@ -117,23 +118,13 @@
                     <p>
                         Cybersecurity professional with 15 months of hands-on experience in ethical hacking, penetration testing, vulnerability assessment, and security operations. Currently pursuing a B.Tech in Computer Engineering (Cybersecurity) and a UG Diploma in Cybersecurity & Advanced Digital Forensics. Skilled in web and network penetration testing, Active Directory security, SIEM-based threat analysis, digital forensics, and security automation using Python, Bash, and PowerShell. Experienced with industry frameworks including MITRE ATT&CK, NIST Cybersecurity Framework, and OWASP Top 10.
                     </p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">15+</div>
-                            <div class="stat-label">Months Experience</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">10+</div>
-                            <div class="stat-label">Security Projects</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">∞</div>
-                            <div class="stat-label">Cups of Coffee</div>
-                        </div>
+                    <div class="about-stats" id="about-stats-container">
+                        <!-- Dynamic Stats -->
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="code-window">
+                <div class="about-image" id="profile-container">
+                    <img src="assets/images/profile.jpg" alt="Yatish Hemant Bharambe" class="profile-photo" id="profile-img" onerror="this.style.display='none'">
+                    <div class="code-window" id="profile-code">
                         <div class="code-header">
                             <div class="code-dot dot-red"></div>
                             <div class="code-dot dot-yellow"></div>
@@ -294,16 +285,16 @@
             <div class="contact-form fade-in">
                 <form id="contactForm">
                     <div class="form-group">
-                        <label>$ name --input</label>
+                        <label>Name</label>
                         <input type="text" name="name" placeholder="Yatish" required>
                         <small class="field-sign">Signed by Yatish</small>
                     </div>
                     <div class="form-group">
-                        <label>$ email --input</label>
+                        <label>Email</label>
                         <input type="email" name="email" placeholder="yhbharmbe26@gmail.com" required>
                     </div>
                     <div class="form-group">
-                        <label>$ message --input</label>
+                        <label>Message</label>
                         <textarea name="message" placeholder="Your message here..." required></textarea>
                     </div>
 
@@ -315,7 +306,6 @@
 
     <footer>
     <p>&copy; 2025 <span class="signature">Yatish</span>. All rights reserved.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Made with ❤️ using HTML, CSS & JavaScript</p>
         <p style="margin-top: 0.25rem; font-size: 0.8rem; color: #bbb;">Site signed and maintained by <strong>Yatish Hemant Bharambe</strong></p>
         
         <!-- Visitor Counter -->

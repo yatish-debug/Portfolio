@@ -51,13 +51,15 @@ app.get('/api/data', (req, res) => {
     const certifications = readJson('certifications.json');
     const projects = readJson('projects.json');
     const skills = readJson('skills.json');
+    const stats = readJson('stats.json');
     
     res.json({
         experience,
         education,
         certifications,
         projects,
-        skills
+        skills,
+        stats
     });
 });
 
@@ -121,7 +123,7 @@ app.post('/api/admin/messages/status', (req, res) => {
 // Generic Add Item
 app.post('/api/admin/:section/add', (req, res) => {
     const section = req.params.section;
-    const validSections = ['experience', 'education', 'certifications', 'projects', 'skills'];
+    const validSections = ['experience', 'education', 'certifications', 'projects', 'skills', 'stats'];
     if (!validSections.includes(section)) return res.status(400).json({ error: 'Invalid section' });
 
     let data = readJson(`${section}.json`);
@@ -135,7 +137,7 @@ app.post('/api/admin/:section/add', (req, res) => {
 app.post('/api/admin/:section/edit', (req, res) => {
     const section = req.params.section;
     const { id, ...updateData } = req.body;
-    const validSections = ['experience', 'education', 'certifications', 'projects', 'skills'];
+    const validSections = ['experience', 'education', 'certifications', 'projects', 'skills', 'stats'];
     if (!validSections.includes(section)) return res.status(400).json({ error: 'Invalid section' });
 
     let data = readJson(`${section}.json`);
@@ -153,7 +155,7 @@ app.post('/api/admin/:section/edit', (req, res) => {
 app.post('/api/admin/:section/delete', (req, res) => {
     const section = req.params.section;
     const { id } = req.body;
-    const validSections = ['experience', 'education', 'certifications', 'projects', 'skills'];
+    const validSections = ['experience', 'education', 'certifications', 'projects', 'skills', 'messages', 'stats'];
     if (!validSections.includes(section)) return res.status(400).json({ error: 'Invalid section' });
 
     let data = readJson(`${section}.json`);

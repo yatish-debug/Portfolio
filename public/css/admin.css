@@ -122,3 +122,25 @@ th {
     border: 1px solid var(--border-color);
     color: var(--text-main);
 }
+
+@media (max-width: 768px) {
+    .admin-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .admin-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .login-box {
+        width: 90%;
+        padding: 2rem;
+    }
+    .admin-content {
+        padding: 1rem;
+    }
+    .form-container input, .form-container textarea {
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+}
+

@@ -4,6 +4,7 @@ const ROOT_PASSWORD = 'Yatish@2006'; // Basic auth for demonstration
 let currentTab = 'messages';
 let editingId = null;
 window.currentItems = [];
+window.currentMessages = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginBtn = document.getElementById('loginBtn');
@@ -88,6 +89,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
     });
+    // Message Modal Close
+    const msgModal = document.getElementById('messageModal');
+    const msgClose = document.getElementById('closeMessageModal');
+    if (msgClose) {
+        msgClose.addEventListener('click', () => {
+            msgModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
+    }
+    window.addEventListener('click', (e) => {
+        if (e.target === msgModal) {
+            msgModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
 });
 
 function loadData(tab) {
@@ -95,18 +111,21 @@ function loadData(tab) {
         fetch('/api/admin/messages')
             .then(res => res.json())
             .then(data => {
+                window.currentMessages = data;
                 const tbody = document.querySelector('#messagesTable tbody');
                 tbody.innerHTML = data.map(msg => `
                     <tr>
                         <td>${msg.name}</td>
                         <td>${msg.email}</td>
-                        <td>${msg.message}</td>
+                        <td>${msg.message.length > 20 ? msg.message.substring(0, 20) + '...' : msg.message}</td>
                         <td>
                             <span style="color: ${msg.status === 'approved' ? 'var(--accent-primary)' : msg.status === 'denied' ? 'red' : 'yellow'}">${msg.status}</span>
                         </td>
                         <td>
                             <button class="action-btn approve" onclick="updateMessageStatus('${msg.id}', 'approved')">Approve</button>
                             <button class="action-btn deny" onclick="updateMessageStatus('${msg.id}', 'denied')">Deny</button>
+                            <button class="action-btn" style="background: transparent; color: var(--accent-primary);" onclick="viewMessage('${msg.id}')">👁️</button>
+                            <button class="action-btn deny" onclick="deleteItem('messages', '${msg.id}')">Delete</button>
                         </td>
                     </tr>
                 `).join('');
@@ -179,6 +198,18 @@ function loadData(tab) {
                             </td>
                         </tr>
                     `).join('');
+                } else if (tab === 'stats') {
+                    tbody.innerHTML = items.map(item => `
+                        <tr>
+                            <td>${item.number}</td>
+                            <td>${item.label}</td>
+                            <td>-</td>
+                            <td>
+                                <button class="action-btn approve" onclick="editItem('${item.id}')">Edit</button>
+                                <button class="action-btn deny" onclick="deleteItem('${tab}', '${item.id}')">Delete</button>
+                            </td>
+                        </tr>
+                    `).join('');
                 }
             });
     }
@@ -229,6 +260,12 @@ function setupCrudForm(tab) {
             <p style="color:var(--text-secondary); margin-bottom:1rem; font-size:0.9rem;">(Note: Add exact skills array directly in JSON later. This creates the category wrapper.)</p>
         `;
         headers.innerHTML = `<th>Category</th><th>Item Count</th><th>-</th><th>Actions</th>`;
+    } else if (tab === 'stats') {
+        inputs.innerHTML = `
+            <input type="text" name="number" placeholder="Number (e.g. 15+)" required>
+            <input type="text" name="label" placeholder="Label (e.g. Months Experience)" required>
+        `;
+        headers.innerHTML = `<th>Number</th><th>Label</th><th>-</th><th>Actions</th>`;
     }
     
     // Reset form state
@@ -263,6 +300,27 @@ function updateMessageStatus(id, status) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, status })
     }).then(() => loadData('messages'));
+}
+
+function viewMessage(id) {
+    const msg = window.currentMessages.find(m => m.id === id);
+    if (!msg) return;
+
+    const modal = document.getElementById('messageModal');
+    const modalBody = document.getElementById('messageModalBody');
+    
+    modalBody.innerHTML = `
+        <h2 style="color: var(--accent-primary); margin-bottom: 1rem;">Message Details</h2>
+        <p><strong>From:</strong> ${msg.name}</p>
+        <p><strong>Email:</strong> <a href="mailto:${msg.email}" style="color: var(--accent-secondary);">${msg.email}</a></p>
+        <p><strong>Status:</strong> <span style="color: ${msg.status === 'approved' ? 'var(--accent-primary)' : msg.status === 'denied' ? 'red' : 'yellow'}">${msg.status}</span></p>
+        <hr style="border: 1px solid #333; margin: 1rem 0;">
+        <h3 style="margin-bottom: 0.5rem;">Message:</h3>
+        <p style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 5px; white-space: pre-wrap;">${msg.message}</p>
+    `;
+    
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
 }
 
 function deleteItem(section, id) {

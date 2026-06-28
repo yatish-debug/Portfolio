@@ -27,6 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', skipBoot, { once: true });
     bootScreen.addEventListener('click', skipBoot, { once: true });
 });
+// Hamburger Menu Logic
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+}
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+});
 
 const observerOptions = {
     threshold: 0.1,
@@ -167,9 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let projectsData = null;
 
     // Fetch projects data
-    fetch('src/data/projects.json')
+    fetch('/api/data')
         .then(response => response.json())
-        .then(data => { projectsData = data; })
+        .then(data => { projectsData = data.projects; })
         .catch(err => console.error("Error loading project data:", err));
 
     projectLinks.forEach(link => {
@@ -234,6 +254,17 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('/api/data')
         .then(res => res.json())
         .then(data => {
+            // Render Stats
+            const statsContainer = document.getElementById('about-stats-container');
+            if (statsContainer && data.stats) {
+                statsContainer.innerHTML = data.stats.map(stat => `
+                    <div class="stat-item">
+                        <div class="stat-number">${stat.number}</div>
+                        <div class="stat-label">${stat.label}</div>
+                    </div>
+                `).join('');
+            }
+
             // Render Experience
             const expContainer = document.getElementById('experience-container');
             if (expContainer && data.experience) {
