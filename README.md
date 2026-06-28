@@ -31,16 +31,17 @@
 - Glassmorphism effects
 - Scroll-triggered animations
 - Fully responsive design
+- Dynamic "Hover to Hack" Profile Photo Reveal
 
 </td>
 <td width="50%">
 
 ### 🛠️ Technical Stack
 - Node.js & Express.js Backend
+- Full CRUD Admin Dashboard
 - JSON File-based Databases
 - Progressive Web App (PWA) Support
 - Pure Vanilla JavaScript
-- CSS Grid & Flexbox
 - Custom CSS animations
 - Zero frontend dependencies
 
@@ -85,6 +86,7 @@ cyber-portfolio/
 │   ├── analytics.json    # Visitor tracking
 │   ├── experience.json   # Work history
 │   ├── projects.json     # Portfolio projects
+│   ├── stats.json        # Dynamic profile stats
 │   └── messages.json     # Contact form submissions
 │
 └── public/               # 🌐 Publicly Accessible Frontend
